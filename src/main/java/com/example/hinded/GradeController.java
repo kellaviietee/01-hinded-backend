@@ -1,14 +1,12 @@
 package com.example.hinded;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class GradeController {
     private final GradeService gradeService;
 
@@ -22,6 +20,7 @@ public class GradeController {
     }
     @PostMapping(path = "/add")
     public Grade addGrade(@RequestBody Grade grade) {
-        return this.gradeService.addNewGrade(grade);
+        Grade addedGrade = new Grade(grade.getPoints(), grade.getMaximum());
+        return this.gradeService.addNewGrade(addedGrade);
     }
 }

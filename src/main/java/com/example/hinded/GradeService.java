@@ -15,8 +15,6 @@ public class GradeService {
     }
 
     public List<Grade> getAllGrades(){
-        Grade testGrade = new Grade(0,13, 30, 42.0f);
-        this.gradeRepository.save(testGrade);
         return this.gradeRepository.findAll();
     }
 
