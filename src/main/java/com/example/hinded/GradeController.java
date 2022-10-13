@@ -23,4 +23,12 @@ public class GradeController {
         Grade addedGrade = new Grade(grade.getPoints(), grade.getMaximum());
         return this.gradeService.addNewGrade(addedGrade);
     }
+    @GetMapping(path = "/stats")
+    public GradesStatistics getGradeStatistics(){
+        return gradeService.getGradesStatistics();
+    }
+    @GetMapping(path = "/clear")
+    public GradesStatistics clearDatabase() {
+        return gradeService.clearDatabase();
+    }
 }
